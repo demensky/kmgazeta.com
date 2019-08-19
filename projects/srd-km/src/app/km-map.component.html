@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <gm-map class="map" [(gmZoom)]="mapZoom" [(gmCenter)]="mapCenter">
+        <gm-marker
+            *ngFor="let distributor of distributors"
+            #marker
+            [gmPosition]="distributor.position"
+            [gmOpacity]="distributor.primary ? 1 : 0.5"
+            (gmClick)="onMarkerClick(distributor, marker)"
+        ></gm-marker>
+    </gm-map>
+</div>
+
+<gm-info-window #window (gmCloseclick)="onWindowCloseClick()">
+    <ng-container *ngIf="current !== null" class="info-window-wrapper">
+        <div>
+            <strong>{{ current.title }}</strong>
+        </div>
+        <div>{{ current.description }}</div>
+    </ng-container>
+</gm-info-window>

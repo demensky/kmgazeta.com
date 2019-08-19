@@ -1,0 +1,87 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "srd-km": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "projects/srd-km",
+            "sourceRoot": "projects/srd-km/src",
+            "prefix": "srd",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/srd-km",
+                        "index": "projects/srd-km/src/index.html",
+                        "main": "projects/srd-km/src/main.ts",
+                        "polyfills": "projects/srd-km/src/polyfills.ts",
+                        "tsConfig": "projects/srd-km/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "projects/srd-km/src/favicon.ico",
+                            "projects/srd-km/src/assets",
+                            "projects/srd-km/src/robots.txt"
+                        ],
+                        "styles": ["projects/srd-km/src/styles.scss"],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/srd-km/src/environments/environment.ts",
+                                    "with": "projects/srd-km/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "srd-km:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "srd-km:build:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/srd-km/tsconfig.app.json",
+                            "projects/srd-km/tsconfig.spec.json",
+                            "projects/srd-km/e2e/tsconfig.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "srd-km"
+}
