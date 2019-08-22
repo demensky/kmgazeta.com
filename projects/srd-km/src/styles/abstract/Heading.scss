@@ -1,9 +1,8 @@
 %Heading {
     & {
         @extend %Block;
-        @extend %BrandColor;
 
-        font-weight: inherit;
+        color: #757575;
     }
 
     &:target {
