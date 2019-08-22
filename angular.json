@@ -25,6 +25,7 @@
                         "aot": true,
                         "assets": [
                             "projects/srd-km/src/favicon.ico",
+                            "projects/srd-km/src/tablitsu-moduley/index.html",
                             "projects/srd-km/src/assets",
                             "projects/srd-km/src/robots.txt"
                         ],
