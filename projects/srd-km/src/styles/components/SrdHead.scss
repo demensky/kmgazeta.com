@@ -1,0 +1,8 @@
+.SrdHead {
+    & {
+        @extend %Block;
+
+        display: block;
+        overflow: visible;
+    }
+}
